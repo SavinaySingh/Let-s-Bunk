@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/checkmark">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text="Bunks Allowed
+       YEAH"
+
+        android:textColor="@android:color/background_dark"
+
+        android:textColorHighlight="@color/cardview_dark_background"
+        android:textSize="40dp"
+        android:textStyle="italic|bold"
+        tools:layout_editor_absoluteX="178dp"
+        tools:layout_editor_absoluteY="227dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="63dp"
+        android:layout_marginStart="63dp" />
+</RelativeLayout>

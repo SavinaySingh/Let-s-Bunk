@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.savinay.letsbunk.Activities.SetSubjects"
+    android:background="@color/green"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Your Subjects"
+        android:background="@color/white"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+
+    <android.support.v7.widget.RecyclerView
+
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:id="@+id/recyclerView"></android.support.v7.widget.RecyclerView>
+
+    <EditText
+        android:id="@+id/e1"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Subject"
+        android:textSize="25dp"
+        android:background="@color/white"/>
+
+    <EditText
+        android:id="@+id/e2"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="25dp"
+        android:background="@color/white"
+        android:hint="req. percentage"
+        android:inputType="numberDecimal"
+        android:layout_alignBaseline="@+id/e1"
+        android:layout_alignBottom="@+id/e1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/add"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:textColor="@color/colorPrimary"
+        android:textSize="40dp"
+        android:layout_above="@+id/recyclerView"
+        android:layout_alignRight="@+id/e1"
+        android:layout_alignEnd="@+id/e1"
+        android:layout_marginRight="27dp"
+        android:layout_marginEnd="27dp" />
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\u2713"
+        android:textColor="@color/colorPrimary"
+        android:textSize="40dp"
+        android:layout_above="@+id/recyclerView"
+        android:layout_alignLeft="@+id/e2"
+        android:layout_alignStart="@+id/e2"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp" />
+
+
+</RelativeLayout>
