@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.savinay.letsbunk.Adapters.Adapter1;
+import com.savinay.letsbunk.Fragments.Fragment01;
+
 import com.savinay.letsbunk.MODELS.Subject;
 import com.savinay.letsbunk.R;
 
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 public class SetSubjects extends AppCompatActivity {
 RecyclerView recyclerView;
     EditText t1,t2;
+    public static final String TAG="yo";
     ArrayList<Subject> arrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +54,15 @@ RecyclerView recyclerView;
                 Intent i3=new Intent(SetSubjects.this,FinalActivity.class);
                 //name arraylist
                 i3.putExtra("key01",name);
+                i3.putExtra("key02",arrayList.size());
+                for (int i=0;i<arrayList.size();i++)
+                {
+                    i3.putExtra("key"+String.valueOf(i),arrayList.get(i).getSub());
+                    i3.putExtra("k"+String.valueOf(i),arrayList.get(i).getPer());
+                }
 
 
-          //      i3.putExtra("key02",arrayList);
+
                 startActivity(i3);
                 finish();
             }

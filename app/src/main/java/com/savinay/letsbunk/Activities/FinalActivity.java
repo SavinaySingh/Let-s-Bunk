@@ -1,15 +1,11 @@
 package com.savinay.letsbunk.Activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -23,34 +19,31 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.savinay.letsbunk.BunkAllowed;
-import com.savinay.letsbunk.Fragments.Fragment1;
-import com.savinay.letsbunk.Fragments.Fragment2;
-import com.savinay.letsbunk.Fragments.Fragment3;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.savinay.letsbunk.Adapters.Adapter1;
+import com.savinay.letsbunk.Adapters.Adapter2;
+import com.savinay.letsbunk.Adapters.Adapter3;
+import com.savinay.letsbunk.Fragments.Fragment01;
+import com.savinay.letsbunk.MODELS.Subject;
 import com.savinay.letsbunk.R;
 
+import java.util.ArrayList;
 
 
 public class FinalActivity extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
+
     private ViewPager mViewPager;
+    static String n;
+    static ArrayList<Subject> ar1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,28 +65,29 @@ public class FinalActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
-        SensorManager sm= (SensorManager) getSystemService(SENSOR_SERVICE);
-        SensorEventListener sensorEventListener=new SensorEventListener() {
-            @Override
-            public void onSensorChanged(SensorEvent event) {
+        String name=getIntent().getStringExtra("key01");
+        n=name;
+        int size=getIntent().getIntExtra("key02",0);
+        ArrayList<Subject> arrayList=new ArrayList<Subject>(size);
+        for (int i=0;i<size;i++)
+        {
+            arrayList.add(new Subject(getIntent().getStringExtra("key"+String.valueOf(i)),
+                    getIntent().getStringExtra("k"+String.valueOf(i))));
 
-                Intent bunk=new Intent(FinalActivity.this,whatever.class);
-                startActivity(bunk);
-            }
-
-            @Override
-            public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-            }
-        };
-        Sensor sensor=sm.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-        sm.registerListener(sensorEventListener,sensor,SensorManager.SENSOR_DELAY_GAME);
+        }
+ar1=arrayList;
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent bunk=new Intent(FinalActivity.this,whatever.class);
+                bunk.putExtra("key02",ar1.size());
+                for (int i=0;i<ar1.size();i++)
+                {
+                    bunk.putExtra("key"+String.valueOf(i),ar1.get(i).getSub());
+                    bunk.putExtra("k"+String.valueOf(i),ar1.get(i).getPer());
+                }
                 startActivity(bunk);
             }
         });
@@ -132,23 +126,18 @@ public class FinalActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
+
+
+
+
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
+
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         public PlaceholderFragment() {
         }
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
+
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
@@ -157,24 +146,79 @@ public class FinalActivity extends AppCompatActivity {
             return fragment;
         }
 
+
+
+
+
+        TextView t1;
+        RecyclerView recyclerView;
+        BarChart barChart;
+        RecyclerView r;
+        String[] a={"75","87","95","65"};
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView;
 
-            if( getArguments().getInt(ARG_SECTION_NUMBER)==1)
+            if( getArguments().getInt(ARG_SECTION_NUMBER)==1) {
 
-                rootView= inflater.inflate(R.layout.fragment_fragment1, container, false);
+                rootView = inflater.inflate(R.layout.fragment_fragment01, container, false);
+                t1 = (TextView) rootView.findViewById(R.id.t);
+                t1.setText(n);
+                recyclerView= (RecyclerView) rootView.findViewById(R.id.rv);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                Adapter2 adapter2=new Adapter2(getActivity(),ar1);
+                recyclerView.setAdapter(adapter2);
 
-            else if( getArguments().getInt(ARG_SECTION_NUMBER)==2)
 
-                rootView= inflater.inflate(R.layout.fragment_fragment2, container, false);
+            }
 
-            else
-                rootView= inflater.inflate(R.layout.fragment_fragment3, container, false);
 
-//            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-//            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+
+            else if( getArguments().getInt(ARG_SECTION_NUMBER)==2) {
+                rootView = inflater.inflate(R.layout.fragment_fragment2, container, false);
+                barChart = (BarChart) rootView.findViewById(R.id.barGraph);
+
+                ArrayList<BarEntry> barEntries = new ArrayList<>();
+
+                barEntries.add(new BarEntry(1,75));
+                barEntries.add(new BarEntry(2, 87));
+                barEntries.add(new BarEntry(3,95));
+                barEntries.add(new BarEntry(4,65));
+
+
+
+
+
+                BarDataSet barDataSet = new BarDataSet(barEntries, "Subjects");
+                ArrayList<String> theDates = new ArrayList<>();
+                theDates.add("Physics");
+                theDates.add("Chemistry");
+                theDates.add("Maths");
+                theDates.add("Programming");
+
+
+
+
+                BarData barData = new BarData(barDataSet);
+                barChart.setData(barData);
+
+                barChart.setTouchEnabled(true);
+                barChart.setScaleEnabled(true);
+                barChart.setDragEnabled(true);
+
+            }
+            else {
+                rootView = inflater.inflate(R.layout.fragment_fragment3, container, false);
+                r= (RecyclerView) rootView.findViewById(R.id.rec);
+                r.setLayoutManager(new LinearLayoutManager(getActivity()));
+                Adapter3 adapter01=new Adapter3(getActivity(),ar1,a);
+                r.setAdapter(adapter01);
+
+
+            }
+
             return rootView;
         }
     }
@@ -195,6 +239,12 @@ public class FinalActivity extends AppCompatActivity {
 
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
+
+
+
+            Fragment01.newInstance(n,ar1);
+
+
            return PlaceholderFragment.newInstance(position + 1);
 
         }

@@ -7,11 +7,10 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        ></CalendarView>
+<com.github.mikephil.charting.charts.BarChart
+    android:layout_width="245dp"
+    android:layout_height="436dp"
+    android:layout_gravity="center"
+    android:id="@+id/barGraph"></com.github.mikephil.charting.charts.BarChart>
 
 </FrameLayout>

@@ -7,11 +7,19 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="EXPECTED PERCENTAGE"
-        android:textSize="40dp"
-        android:textStyle="italic|bold"/>
+        android:layout_height="wrap_content"
+        android:text="Expected Percentage"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"/>
+
+
+
+
+   <android.support.v7.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:layout_height="500dp"
+       android:layout_gravity="bottom"
+       android:id="@+id/rec"></android.support.v7.widget.RecyclerView>
 
 </FrameLayout>

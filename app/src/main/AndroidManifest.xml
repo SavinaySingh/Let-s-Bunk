@@ -27,10 +27,6 @@
         </activity>
         <activity android:name=".Activities.AboutDeveloper" />
         <activity android:name=".Activities.whatever" />
-        <activity
-            android:name=".Activities.TabbyActivity"
-            android:label="@string/title_activity_tabby"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

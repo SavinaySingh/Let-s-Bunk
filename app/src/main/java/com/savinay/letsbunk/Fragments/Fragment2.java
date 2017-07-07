@@ -1,6 +1,7 @@
 package com.savinay.letsbunk.Fragments;
 
 import android.content.Context;
+import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,23 +9,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.savinay.letsbunk.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Fragment2.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Fragment2#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class Fragment2 extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    BarChart barChart;
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -34,15 +33,7 @@ public class Fragment2 extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment2.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static Fragment2 newInstance(String param1, String param2) {
         Fragment2 fragment = new Fragment2();
         Bundle args = new Bundle();
@@ -65,10 +56,77 @@ public class Fragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment2, container, false);
+        View v;
+
+        v=inflater.inflate(R.layout.fragment_fragment2, container, false);
+
+        barChart=(BarChart) v.findViewById(R.id.barGraph);
+
+        ArrayList<BarEntry> barEntries=new ArrayList<>();
+
+        barEntries.add(new BarEntry(44f,0));
+        barEntries.add(new BarEntry(40f,1));
+        barEntries.add(new BarEntry(50f,2));
+
+        BarDataSet barDataSet=new BarDataSet(barEntries,"Dates");
+        ArrayList<String> theDates=new ArrayList<>();
+        theDates.add("April");
+        theDates.add("May");
+        theDates.add("June");
+
+        BarData barData=new BarData(barDataSet);
+        barChart.setData(barData);
+
+        barChart.setTouchEnabled(true);
+        barChart.setScaleEnabled(true);
+        barChart.setDragEnabled(true);
+
+
+
+
+
+
+
+        return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
