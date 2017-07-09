@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.savinay.letsbunk.Activities.EnterDetails"
+    android:background="@color/cardview_light_background"
     android:orientation="vertical"
-    android:background="@color/green"
-    >
+    tools:context="com.savinay.letsbunk.Activities.EnterDetails"
+    android:backgroundTint="@color/yellow">
 
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        app:srcCompat="@drawable/letsbunk"
-
-
-        android:layout_marginTop="18dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        app:srcCompat="@drawable/letsbunk" />
 
     <TextView
         android:id="@+id/whats"
@@ -28,39 +28,44 @@
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="58dp"
+
         android:text="What's Your Name"
-        android:textSize="40sp"
-        android:background="@color/white"
-        />
+        android:textSize="40sp" />
 
     <EditText
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/whats"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="__________________"
-        android:background="@color/white"
-        android:textSize="40sp"
-        android:layout_alignRight="@+id/whats"
         android:layout_alignEnd="@+id/whats"
         android:layout_alignLeft="@+id/whats"
-        android:layout_alignStart="@+id/whats" />
+        android:layout_alignRight="@+id/whats"
+        android:layout_alignStart="@+id/whats"
+        android:layout_below="@+id/whats"
 
-    <Button
-        android:id="@+id/check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="__________________"
+        android:inputType="textPersonName"
+        android:textSize="40sp" />
 
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="49dp"
-        android:text="\u2713"
-        android:textSize="40dp"
 
-        />
+        android:layout_alignParentRight="true"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="57dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+
+        android:elevation="50dp"
+        app:backgroundTint="@color/green"
+        app:elevation="11dp"
+        app:fabSize="normal"
+        app:srcCompat="@android:drawable/ic_media_play" />
 
 
 </RelativeLayout>

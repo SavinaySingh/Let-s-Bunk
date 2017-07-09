@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.savinay.letsbunk.Fragments.Fragment01">
 
 
@@ -10,6 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="40dp"
+        android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -30,4 +33,39 @@
         android:layout_marginEnd="6dp"
         android:layout_marginTop="152dp"
         android:layout_alignParentBottom="true"></android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:layout_below="@+id/t"
+        android:layout_marginTop="50dp"
+        android:text="Mark Your Attendence"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rv"
+        android:layout_alignEnd="@+id/rv"
+        android:layout_alignRight="@+id/rv"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        app:fabSize="normal"
+        android:id="@+id/f1"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:text="Submitted"
+        android:textColor="@color/green"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible"/>
 </RelativeLayout>

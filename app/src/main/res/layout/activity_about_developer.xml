@@ -21,7 +21,7 @@
         android:textSize="30dp"
         android:text="contact-savinaydtu@gmail.com
 
-" />
+https://github.com/hackersavinay" />
 
     <ImageView
         android:id="@+id/imageView"

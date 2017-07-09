@@ -1,6 +1,7 @@
 package com.savinay.letsbunk.Activities;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.savinay.letsbunk.Adapters.Adapter1;
 import com.savinay.letsbunk.Fragments.Fragment01;
@@ -40,7 +42,7 @@ RecyclerView recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter1);
 
-        ((Button)findViewById(R.id.add)).setOnClickListener(new View.OnClickListener() {
+        ((FloatingActionButton)findViewById(R.id.add)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 arrayList.add(new Subject(t1.getText().toString()+"   ",t2.getText().toString()));
@@ -48,7 +50,18 @@ RecyclerView recyclerView;
             }
         });
 
-        ((Button)findViewById(R.id.done)).setOnClickListener(new View.OnClickListener() {
+        ((FloatingActionButton)findViewById(R.id.add)).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(SetSubjects.this,"See Your Input",Toast.LENGTH_SHORT).show();
+                recyclerView.setVisibility(View.VISIBLE);
+                return true;
+            }
+        });
+
+
+
+        ((FloatingActionButton)findViewById(R.id.done)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i3=new Intent(SetSubjects.this,FinalActivity.class);

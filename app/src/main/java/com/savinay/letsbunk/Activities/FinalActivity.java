@@ -93,6 +93,8 @@ ar1=arrayList;
         });
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        mViewPager.setOffscreenPageLimit(2);
 //
    }
 
@@ -151,10 +153,12 @@ ar1=arrayList;
 
 
         TextView t1;
+        TextView t2;
         RecyclerView recyclerView;
         BarChart barChart;
         RecyclerView r;
         String[] a={"75","87","95","65"};
+        FloatingActionButton f1;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -165,10 +169,19 @@ ar1=arrayList;
                 rootView = inflater.inflate(R.layout.fragment_fragment01, container, false);
                 t1 = (TextView) rootView.findViewById(R.id.t);
                 t1.setText(n);
+                f1= (FloatingActionButton) rootView.findViewById(R.id.f1);
                 recyclerView= (RecyclerView) rootView.findViewById(R.id.rv);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 Adapter2 adapter2=new Adapter2(getActivity(),ar1);
                 recyclerView.setAdapter(adapter2);
+                t2= (TextView) rootView.findViewById(R.id.tv1);
+                f1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        recyclerView.setVisibility(View.INVISIBLE);
+                        t2.setVisibility(View.VISIBLE);
+                    }
+                });
 
 
             }
@@ -261,7 +274,7 @@ ar1=arrayList;
                 case 0:
                     return "Input";
                 case 1:
-                    return "Calender";
+                    return "Bar Chart";
                 case 2:
                     return "Percentage";
             }

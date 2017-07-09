@@ -3,7 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <item name="green" type="color">#FF99CC00</item>
-    <color name="mycl" type="color">#4a8b81</color>
-    <color name="white">#FFFFFF</color>z\
+    <item name="green" type="color">#97c706</item>
+    <color name="mycl" type="color">#d70812</color>
+    <color name="yellow">#fce550</color>
+    <color name="mycolforGraph">#fcac50</color>
+    <color name="mycolforexp">#f173ff</color>
+    <color name="mycolforbunk">#7f73ff</color>
+    <color name="white">#ffffff</color>
 </resources>

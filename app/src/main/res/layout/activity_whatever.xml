@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/checkmark">
+    android:background="@color/mycolforbunk"
+    >
 
     <TextView
         android:id="@+id/textView7"
@@ -28,8 +29,9 @@
 
 
     <android.support.v7.widget.RecyclerView
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
         android:layout_below="@+id/textView7"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

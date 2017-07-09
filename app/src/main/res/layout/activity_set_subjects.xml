@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.savinay.letsbunk.Activities.SetSubjects"
-    android:background="@color/green"
+    android:background="@color/yellow"
+
     android:padding="20dp">
 
     <TextView
@@ -13,10 +15,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter Your Subjects"
-        android:background="@color/white"
+
         android:textSize="40dp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/cardview_dark_background"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -28,7 +30,7 @@
         android:layout_height="400dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/white"
+        android:visibility="invisible"
         android:id="@+id/recyclerView"></android.support.v7.widget.RecyclerView>
 
     <EditText
@@ -43,7 +45,7 @@
         android:inputType="textPersonName"
         android:hint="Subject"
         android:textSize="25dp"
-        android:background="@color/white"/>
+        />
 
     <EditText
         android:id="@+id/e2"
@@ -51,7 +53,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:textSize="25dp"
-        android:background="@color/white"
+
         android:hint="req. percentage"
         android:inputType="numberDecimal"
         android:layout_alignBaseline="@+id/e1"
@@ -59,32 +61,30 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:id="@+id/add"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add"
-        android:textColor="@color/colorPrimary"
-        android:textSize="40dp"
-        android:layout_above="@+id/recyclerView"
-        android:layout_alignRight="@+id/e1"
-        android:layout_alignEnd="@+id/e1"
-        android:layout_marginRight="27dp"
-        android:layout_marginEnd="27dp" />
-
-    <Button
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="\u2713"
-        android:textColor="@color/colorPrimary"
-        android:textSize="40dp"
-        android:layout_above="@+id/recyclerView"
-        android:layout_alignLeft="@+id/e2"
-        android:layout_alignStart="@+id/e2"
-        android:layout_marginLeft="27dp"
-        android:layout_marginStart="27dp" />
+        app:fabSize="normal"
+        app:srcCompat="@android:drawable/ic_media_play"
+        android:layout_marginRight="52dp"
+        android:layout_marginEnd="52dp"
+        android:layout_below="@+id/e2"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:id="@+id/add"
+        app:rippleColor="@color/cardview_light_background"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_marginLeft="54dp"
+        android:layout_marginStart="54dp"
+        android:layout_below="@+id/e1"
+        android:layout_alignLeft="@+id/e1"
+        android:layout_alignStart="@+id/e1"></android.support.design.widget.FloatingActionButton>
 
 
 </RelativeLayout>

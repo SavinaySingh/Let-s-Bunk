@@ -30,7 +30,7 @@ public class Adapter4 extends RecyclerView.Adapter<Adapter4.HolderClass> {
     @Override
     public Adapter4.HolderClass onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater li= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v= li.inflate(R.layout.adapter_item_1,null);
+        View v= li.inflate(R.layout.adapter_item_4,null);
 
         Adapter4.HolderClass holderClass=new Adapter4.HolderClass(v);
         holderClass.t1= (TextView) v.findViewById(R.id.ad_item);
