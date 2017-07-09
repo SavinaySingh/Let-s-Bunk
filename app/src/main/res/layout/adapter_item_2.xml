@@ -17,7 +17,7 @@
     <TextView
         android:id="@+id/ad_item"
 
-        android:layout_width="170dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="40dp"
@@ -28,19 +28,19 @@
     <TextView
         android:id="@+id/textView3"
 
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:text="per"
         android:textSize="40dp"
         android:textStyle="italic"
         android:gravity="bottom"/>
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_gravity="top"
+    <!--<CheckBox-->
+        <!--android:id="@+id/checkBox"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_gravity="top"-->
 
-        android:text="" />
+        <!--android:text="" />-->
 </LinearLayout>
     </android.support.v7.widget.CardView>

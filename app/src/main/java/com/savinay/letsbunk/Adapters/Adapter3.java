@@ -2,6 +2,7 @@ package com.savinay.letsbunk.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import com.savinay.letsbunk.MODELS.Subject;
 import com.savinay.letsbunk.R;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by savinaysingh on 08/07/17.
@@ -23,9 +26,14 @@ public class Adapter3 extends RecyclerView.Adapter<Adapter3.HolderClass> {
     private String[] a;
 
     public Adapter3(Context context,ArrayList<Subject> arrayList,String[] a) {
+        Log.e(TAG, "Adapter3: " );
         this.context=context;
         this.arrayList=arrayList;
         this.a=a;
+    }
+    public void setDyn(String[] a){
+        this.a=a;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -43,7 +51,7 @@ public class Adapter3 extends RecyclerView.Adapter<Adapter3.HolderClass> {
     public void onBindViewHolder(HolderClass holder, int position) {
         holder.t1.setText(arrayList.get(position).getSub());
 
-
+        Log.e(TAG, "onBindViewHolder: "+a[position] );
 
 
         holder.t2.setText(a[position]);

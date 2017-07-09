@@ -20,4 +20,12 @@ public class Subject {
     public String getPer() {
         return per;
     }
+
+    public void setSub(String sub) {
+        this.sub = sub;
+    }
+
+    public void setPer(String per) {
+        this.per = per;
+    }
 }

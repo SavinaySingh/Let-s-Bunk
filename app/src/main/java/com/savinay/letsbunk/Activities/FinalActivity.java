@@ -19,16 +19,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.savinay.letsbunk.Adapters.Adapter1;
 import com.savinay.letsbunk.Adapters.Adapter2;
 import com.savinay.letsbunk.Adapters.Adapter3;
 import com.savinay.letsbunk.Fragments.Fragment01;
+
 import com.savinay.letsbunk.MODELS.Subject;
 import com.savinay.letsbunk.R;
 
@@ -40,11 +41,11 @@ public class FinalActivity extends AppCompatActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-
+public static final String TAG="yo";
     private ViewPager mViewPager;
     static String n;
     static ArrayList<Subject> ar1;
-
+    public static ArrayList<Subject> ar2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,11 +54,6 @@ public class FinalActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
-
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -75,26 +71,20 @@ public class FinalActivity extends AppCompatActivity {
                     getIntent().getStringExtra("k"+String.valueOf(i))));
 
         }
-ar1=arrayList;
+        ar1=arrayList;
+        ar2=arrayList;
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent bunk=new Intent(FinalActivity.this,whatever.class);
-                bunk.putExtra("key02",ar1.size());
-                for (int i=0;i<ar1.size();i++)
-                {
-                    bunk.putExtra("key"+String.valueOf(i),ar1.get(i).getSub());
-                    bunk.putExtra("k"+String.valueOf(i),ar1.get(i).getPer());
-                }
-                startActivity(bunk);
+
             }
         });
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        mViewPager.setOffscreenPageLimit(2);
+        mViewPager.setOffscreenPageLimit(4);
 //
    }
 
@@ -130,7 +120,7 @@ ar1=arrayList;
 
 
 
-
+     //      CLASS START
 
     public static class PlaceholderFragment extends Fragment {
 
@@ -153,14 +143,26 @@ ar1=arrayList;
 
 
         TextView t1;
-        TextView t2;
+        static int count=0;
+        TextView t2,t3;
         RecyclerView recyclerView;
         BarChart barChart;
         RecyclerView r;
-        String[] a={"75","87","95","65"};
-        FloatingActionButton f1;
+//        String[] a={"75","87","95","65"};
+        String[] stu;
+        Button b1;
+        FloatingActionButton f1,f2;
+        int arr[];
+
+        public int[] getArr() {
+            return arr;
+        }
+
+        ArrayList<int[]> ar3=new ArrayList<>();
+
+
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView;
 
@@ -170,18 +172,75 @@ ar1=arrayList;
                 t1 = (TextView) rootView.findViewById(R.id.t);
                 t1.setText(n);
                 f1= (FloatingActionButton) rootView.findViewById(R.id.f1);
+                f2= (FloatingActionButton) rootView.findViewById(R.id.f2);
                 recyclerView= (RecyclerView) rootView.findViewById(R.id.rv);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                Adapter2 adapter2=new Adapter2(getActivity(),ar1);
+                final Adapter2 adapter2=new Adapter2(getActivity(),ar1);
                 recyclerView.setAdapter(adapter2);
                 t2= (TextView) rootView.findViewById(R.id.tv1);
+                t3= (TextView) rootView.findViewById(R.id.textView6);
+//                barChart = (BarChart) rootView.findViewById(R.id.barGraph);
+//                r= (RecyclerView) rootView.findViewById(R.id.rec);
                 f1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         recyclerView.setVisibility(View.INVISIBLE);
                         t2.setVisibility(View.VISIBLE);
+                        t3.setVisibility(View.INVISIBLE);
+
+
+
+                        for(int i=0;i<ar2.size();i++) {
+
+                            if(ar2.get(i).getPer()!="100")
+                            ar2.get(i).setPer("0");
+                        }
+                        for (int i=0;i<ar2.size();i++)
+                        {
+
+                            Log.e("yo",ar2.get(i)+" "+ar2.get(i).getPer());
+                        }
+
+                        arr=new int[ar2.size()];
+
+                        for(int i=0;i<ar2.size();i++)
+                        {
+                            arr[i]= Integer.parseInt(ar2.get(i).getPer());
+                        }
+                        ar3.add(arr);
+
+
+
+
+
+
+
+
+
+                        Log.e("yo", "onClick: "+ar3.size() +"  "+arr.length);
+
+
                     }
                 });
+
+
+                Log.e(TAG, "onCreateView: abhi main 1 pe hun"+ar3.size() );
+                f2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        recyclerView.setVisibility(View.VISIBLE);
+                        t2.setVisibility(View.INVISIBLE);
+                        t3.setVisibility(View.VISIBLE);
+
+
+                        for(int i=0;i<ar2.size();i++){
+                            ar2.get(i).setPer("0");
+                        }
+
+                    }
+                });
+
 
 
             }
@@ -190,10 +249,14 @@ ar1=arrayList;
 
 
             else if( getArguments().getInt(ARG_SECTION_NUMBER)==2) {
+                Log.e(TAG, "onCreateView: "+ar3.size() );
                 rootView = inflater.inflate(R.layout.fragment_fragment2, container, false);
                 barChart = (BarChart) rootView.findViewById(R.id.barGraph);
 
                 ArrayList<BarEntry> barEntries = new ArrayList<>();
+
+                Log.e(TAG, "onCreateView: ye graph vala hai"+ar3.size() );
+
 
                 barEntries.add(new BarEntry(1,75));
                 barEntries.add(new BarEntry(2, 87));
@@ -222,12 +285,71 @@ ar1=arrayList;
                 barChart.setDragEnabled(true);
 
             }
-            else {
+            else if( getArguments().getInt(ARG_SECTION_NUMBER)==3){
                 rootView = inflater.inflate(R.layout.fragment_fragment3, container, false);
                 r= (RecyclerView) rootView.findViewById(R.id.rec);
                 r.setLayoutManager(new LinearLayoutManager(getActivity()));
-                Adapter3 adapter01=new Adapter3(getActivity(),ar1,a);
-                r.setAdapter(adapter01);
+
+//                Log.e(TAG, "onCreateView: "+ar3.size()+" "+ar3.get(0).length);
+                b1= (Button) rootView.findViewById(R.id.button);
+
+
+
+                if(ar3.size()!=0) {
+                    Log.e(TAG, "onCreateView: if" );
+                 int sum = 0;
+                 int abc[];
+                 stu = new String[ar3.get(0).length];
+                 for (int i = 0; i < ar3.get(0).length; i++) {
+                     sum = 0;
+                     for (int j = 0; j < ar3.size(); j++) {
+                         abc = ar3.get(j);
+                         sum += abc[i] ;
+                     }
+                     stu[i] = String.valueOf(sum/ar3.size());
+                    }
+                 }
+
+
+             else {
+                    Log.e("yo", "onCreateView: "+"always" );
+                stu = new String[3];
+                    for (int i=0;i<3;i++)
+                        stu[i]="0";
+
+
+             }
+
+
+
+                 final Adapter3 adapter01 = new Adapter3(getActivity(), ar1,stu);
+                 adapter01.notifyDataSetChanged();
+                 r.setAdapter(adapter01);
+                adapter01.notifyDataSetChanged();
+                b1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Log.e(TAG, "onClick: on button"+stu[0] );
+//                        int sum = 0;
+//                        int abc[];
+//                        stu = new String[ar3.get(0).length];
+//                        for (int i = 0; i < ar3.get(0).length; i++) {
+//                            sum = 0;
+//                            for (int j = 0; j < ar3.size(); j++) {
+//                                abc = ar3.get(j);
+//                                sum += abc[i] ;
+//                            }
+//                            stu[i] = String.valueOf(sum/ar3.size());
+//                        }
+//                        adapter01.setDyn(stu);
+                    }
+                });
+
+             }
+            else
+            {
+                rootView=inflater.inflate(R.layout.activity_whatever,container,false);
 
 
             }
@@ -249,23 +371,14 @@ ar1=arrayList;
         @Override
         public Fragment getItem(int position) {
 
-
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-
-
-
-            Fragment01.newInstance(n,ar1);
-
-
            return PlaceholderFragment.newInstance(position + 1);
 
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+         //4 pages
+            return 4;
         }
 
         @Override
@@ -273,10 +386,12 @@ ar1=arrayList;
             switch (position) {
                 case 0:
                     return "Input";
-                case 1:
-                    return "Bar Chart";
                 case 2:
-                    return "Percentage";
+                    return "Graph";
+                case 1:
+                    return "%";
+                case 3:
+                    return "Bunk";
             }
             return null;
         }
