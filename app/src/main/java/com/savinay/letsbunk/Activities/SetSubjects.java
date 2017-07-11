@@ -45,8 +45,11 @@ RecyclerView recyclerView;
         ((FloatingActionButton)findViewById(R.id.add)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 arrayList.add(new Subject(t1.getText().toString()+"   ",t2.getText().toString()));
                 adapter1.notifyDataSetChanged();
+                t1.setText("");
+                t2.setText("");
             }
         });
 
@@ -61,27 +64,50 @@ RecyclerView recyclerView;
 
 
 
+//        ((FloatingActionButton)findViewById(R.id.done)).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+
+//        Intent i3=new Intent(SetSubjects.this,FinalActivity.class);
+//        //name arraylist
+//        i3.putExtra("key01",name);
+//        i3.putExtra("key02",arrayList.size());
+//        for (int i=0;i<arrayList.size();i++)
+//        {
+//            i3.putExtra("key"+String.valueOf(i),arrayList.get(i).getSub());
+//            i3.putExtra("k"+String.valueOf(i),arrayList.get(i).getPer());
+//        }
+//
+//
+//                startActivity(i3);
+//                finish();
+//            }
+//        });
+
         ((FloatingActionButton)findViewById(R.id.done)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i3=new Intent(SetSubjects.this,FinalActivity.class);
+                Intent i4=new Intent(SetSubjects.this,markAttendence.class);
                 //name arraylist
-                i3.putExtra("key01",name);
-                i3.putExtra("key02",arrayList.size());
+                i4.putExtra("key01",name);
+                i4.putExtra("key02",arrayList.size());
                 for (int i=0;i<arrayList.size();i++)
                 {
-                    i3.putExtra("key"+String.valueOf(i),arrayList.get(i).getSub());
-                    i3.putExtra("k"+String.valueOf(i),arrayList.get(i).getPer());
+                    i4.putExtra("key"+String.valueOf(i),arrayList.get(i).getSub());
+                    i4.putExtra("k"+String.valueOf(i),arrayList.get(i).getPer());
                 }
 
 
 
-                startActivity(i3);
+
+                startActivity(i4);
                 finish();
+
+
+
+
             }
         });
-
-
 
 
 

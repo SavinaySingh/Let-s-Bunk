@@ -10,14 +10,15 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.savinay.letsbunk.Activities.FinalActivity;
+import com.savinay.letsbunk.Activities.Attendence;
+import com.savinay.letsbunk.Activities.markAttendence;
 import com.savinay.letsbunk.MODELS.Subject;
 import com.savinay.letsbunk.R;
 
 import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
-import static com.savinay.letsbunk.Activities.FinalActivity.ar2;
+import static com.savinay.letsbunk.Activities.Attendence.ar2;
 
 /**
  * Created by savinaysingh on 07/07/17.
@@ -83,7 +84,8 @@ public class Adapter2 extends RecyclerView.Adapter<Adapter2.HolderClass> {
 
 
 
-               FinalActivity.ar2.set(position,new Subject(arrayList.get(position).getSub(),"100"));
+//               FinalActivity.ar2.set(position,new Subject(arrayList.get(position).getSub(),"100"));
+               markAttendence.ar2.set(position,new Subject(arrayList.get(position).getSub(),"100"));
            }
        });
     }

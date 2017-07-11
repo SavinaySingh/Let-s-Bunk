@@ -17,7 +17,7 @@
     android:padding="20dp"
     android:layout_margin="20dp"
 
-    >
+    android:weightSum="1">
 
 
 
@@ -36,7 +36,7 @@
     <TextView
         android:id="@+id/textView3"
 
-        android:layout_width="50dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="per"
         android:textSize="40dp"

@@ -54,7 +54,7 @@ public class Adapter3 extends RecyclerView.Adapter<Adapter3.HolderClass> {
         Log.e(TAG, "onBindViewHolder: "+a[position] );
 
 
-        holder.t2.setText(a[position]);
+        holder.t2.setText(a[position]+"%");
 
     }
 

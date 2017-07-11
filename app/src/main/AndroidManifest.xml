@@ -9,26 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.MainActivity" >
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                
             </intent-filter>
         </activity>
         <activity android:name=".Activities.SetSubjects" />
-        <activity android:name=".Activities.EnterDetails"
-
-            ></activity>
+        <activity android:name=".Activities.EnterDetails" />
         <activity
-            android:name=".Activities.FinalActivity"
+            android:name=".Activities.Attendence"
             android:label="@string/title_activity_final"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.AboutDeveloper" />
         <activity android:name=".Activities.whatever" />
+        <activity android:name=".Activities.markAttendence" />
+
     </application>
 
 </manifest>
