@@ -26,7 +26,8 @@ public class MainActivity extends Activity {
         Runnable runnable=new Runnable() {
             @Override
             public void run() {
-                Intent i1=new Intent(MainActivity.this,EnterDetails.class);
+                Intent i1=new Intent
+                        (MainActivity.this,EnterDetails.class);
 
 
 
@@ -34,7 +35,7 @@ public class MainActivity extends Activity {
                 finish();
             }
         };
-        handler.postDelayed(runnable,1500);
+        handler.postDelayed(runnable,2000);
 
 //((Button)findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
 //    @Override

@@ -36,16 +36,14 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/whats"
-        android:layout_alignLeft="@+id/whats"
-        android:layout_alignRight="@+id/whats"
-        android:layout_alignStart="@+id/whats"
-        android:layout_below="@+id/whats"
 
         android:ems="10"
         android:hint="__________________"
         android:inputType="textPersonName"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/whats"
+        android:layout_alignStart="@+id/whats" />
 
 
     <android.support.design.widget.FloatingActionButton
